@@ -15,7 +15,7 @@ export default function Page() {
     <>
       <Loader />
       <Navbar />
-      <main className="flex min-h-screen flex-col bg-canvas dark:bg-canvas-dark w-full overflow-x-hidden">
+      <main className="flex min-h-screen flex-col w-full overflow-x-hidden">
         <Hero />
         <TrustBar />
         <Stats />

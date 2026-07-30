@@ -9,18 +9,20 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="max-w-3xl mx-auto px-4 md:px-8 py-20 md:py-28">
+    <section id="faqs" className="max-w-3xl mx-auto px-4 md:px-8 py-20 md:py-28">
       <div className="flex flex-col items-center mb-12 text-center">
-        <Badge className="mb-4">✦ Got Questions?</Badge>
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-ink dark:text-ink-dark mb-4">
+        <div className="inline-block bg-[#E9D5FF] text-black font-bold uppercase tracking-wider text-xs px-4 py-1.5 rounded-full border-2 border-[var(--border-color)] mb-4 shadow-[2px_2px_0px_0px_var(--shadow-color)]">
+          Got Questions?
+        </div>
+        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-[var(--ink)] mb-4 uppercase">
           Frequently Asked Questions
         </h2>
-        <p className="text-base md:text-lg text-ink-muted dark:text-ink-muted-dark">
+        <p className="text-base md:text-lg text-[var(--ink-muted)] font-medium">
           Everything you need to know about the product and billing.
         </p>
       </div>
 
-      <div className="flex flex-col border-t border-border dark:border-border-dark">
+      <div className="flex flex-col border-t-2 border-[var(--border-color)]">
         {FAQS.map((f, i) => (
           <Accordion
             key={i}

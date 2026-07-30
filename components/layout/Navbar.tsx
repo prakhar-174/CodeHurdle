@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Zap } from 'lucide-react';
 import { Button } from '../ui/Button';
+
 import { ThemeToggle } from '../ui/ThemeToggle';
 
 export function Navbar() {
@@ -23,20 +24,20 @@ export function Navbar() {
   }, [isMenuOpen]);
 
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Features', href: '#' },
-    { name: 'Mentors', href: '#' },
-    { name: 'FAQs', href: '#' },
+    { name: 'Home', href: '#home' },
+    { name: 'Features', href: '#features' },
+    { name: 'Mentors', href: '#mentors' },
+    { name: 'FAQs', href: '#faqs' },
   ];
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-canvas/80 dark:bg-canvas-dark/80 backdrop-blur-md border-b border-border dark:border-border-dark h-16">
+      <header className="sticky top-0 z-40 bg-[var(--canvas)]/90 backdrop-blur-md border-b-2 border-[var(--border-color)] h-20 transition-colors">
         <div className="max-w-6xl mx-auto px-4 md:px-8 h-full flex items-center justify-between">
           {/* Left: Logo */}
-          <Link href="/" className="flex items-center gap-2 text-ink dark:text-ink-dark z-50 relative">
-            <Zap className="text-accent dark:text-accent-dark" size={24} fill="currentColor" />
-            <span className="font-display font-bold text-xl tracking-tight">CodeHurdle</span>
+          <Link href="/" className="flex items-center gap-2 text-[var(--ink)] z-50 relative">
+            <Zap className="text-[#2D5BE3]" size={28} fill="currentColor" />
+            <span className="font-display font-extrabold text-2xl tracking-tighter">CodeHurdle</span>
           </Link>
           
           {/* Center: Desktop Nav */}
@@ -45,7 +46,7 @@ export function Navbar() {
               <Link 
                 key={link.name} 
                 href={link.href}
-                className="text-sm font-medium text-ink-muted hover:text-ink dark:text-ink-muted-dark dark:hover:text-ink-dark transition-colors"
+                className="text-sm font-bold text-[var(--ink)] hover:text-[#2D5BE3] transition-colors"
               >
                 {link.name}
               </Link>
@@ -55,8 +56,8 @@ export function Navbar() {
           {/* Right: Actions */}
           <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />
-            <Button variant="secondary" size="sm">Sign In</Button>
-            <Button variant="primary" size="sm">Get Started</Button>
+            <Button variant="ghost" size="sm" className="font-bold border-0 hover:-translate-y-1 text-[var(--ink)]">Login</Button>
+            <Button variant="custom" size="sm" className="bg-[#E9D5FF] text-black hover:bg-[#E9D5FF] border-[var(--border-color)] hover:shadow-[4px_4px_0px_0px_var(--shadow-color)]">Sign Up</Button>
           </div>
           
           {/* Mobile Toggle & Actions */}
@@ -69,7 +70,7 @@ export function Navbar() {
             >
               {/* CSS Morphed Hamburger Icon */}
               <div 
-                className={`w-5 h-[1.5px] bg-ink dark:bg-ink-dark rounded-full transition-transform origin-center`}
+                className={`w-5 h-[2px] bg-[var(--ink)] rounded-full transition-transform origin-center`}
                 style={{
                   transitionDuration: '350ms',
                   transitionTimingFunction: 'cubic-bezier(.34,1.56,.64,1)',
@@ -77,7 +78,7 @@ export function Navbar() {
                 }}
               />
               <div 
-                className={`w-5 h-[1.5px] bg-ink dark:bg-ink-dark rounded-full transition-all origin-center`}
+                className={`w-5 h-[2px] bg-[var(--ink)] rounded-full transition-all origin-center`}
                 style={{
                   transitionDuration: '350ms',
                   transitionTimingFunction: 'cubic-bezier(.34,1.56,.64,1)',
@@ -86,7 +87,7 @@ export function Navbar() {
                 }}
               />
               <div 
-                className={`w-5 h-[1.5px] bg-ink dark:bg-ink-dark rounded-full transition-transform origin-center`}
+                className={`w-5 h-[2px] bg-[var(--ink)] rounded-full transition-transform origin-center`}
                 style={{
                   transitionDuration: '350ms',
                   transitionTimingFunction: 'cubic-bezier(.34,1.56,.64,1)',
@@ -118,7 +119,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }} // Expo Out
-              className="relative w-[75vw] max-w-[300px] h-full bg-canvas dark:bg-[#0A0A0A] shadow-2xl flex flex-col justify-between pt-28 pb-10 px-8 overflow-y-auto"
+              className="relative w-[75vw] max-w-[300px] h-full bg-[var(--canvas)] shadow-[-8px_0px_0px_0px_var(--shadow-color)] border-l-2 border-[var(--border-color)] flex flex-col justify-between pt-28 pb-10 px-8 overflow-y-auto transition-colors"
             >
               {/* Web Strand Line (Left Edge) */}
               <motion.div
@@ -126,7 +127,7 @@ export function Navbar() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, delay: 0.2 }}
-                className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-accent/30 dark:via-accent-dark/30 to-transparent"
+                className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#2D5BE3]/30 to-transparent"
               />
 
               {/* Menu Links — vertically spread */}
@@ -146,7 +147,7 @@ export function Navbar() {
                     <Link 
                       href={link.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className="text-2xl font-display font-medium text-ink dark:text-ink-dark hover:text-accent dark:hover:text-accent-dark transition-colors inline-block"
+                      className="text-3xl font-display font-extrabold text-[var(--ink)] hover:text-[#2D5BE3] transition-colors inline-block"
                     >
                       {link.name}
                     </Link>
@@ -162,8 +163,8 @@ export function Navbar() {
                 transition={{ duration: 0.3, delay: 0.18 + (navLinks.length * 0.05) }}
                 className="flex flex-col gap-4 mt-auto"
               >
-                <Button variant="secondary" size="md" className="w-full justify-center">Sign In</Button>
-                <Button variant="primary" size="md" className="w-full justify-center">Get Started</Button>
+                <Button variant="ghost" size="md" className="w-full justify-center text-[var(--ink)] border-[var(--border-color)]">Login</Button>
+                <Button variant="custom" size="md" className="w-full justify-center bg-[#E9D5FF] text-black border-[var(--border-color)] border-2">Sign Up</Button>
               </motion.div>
               
             </motion.div>

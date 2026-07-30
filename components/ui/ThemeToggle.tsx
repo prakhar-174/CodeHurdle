@@ -1,55 +1,29 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '../../hooks/useTheme';
 
 export function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
+  // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true);
   }, []);
 
   if (!mounted) {
-    return (
-      <div className="w-10 h-10" />
-    );
+    return <div className="w-10 h-10" />; // placeholder
   }
 
   return (
     <button
-      onClick={toggleTheme}
-      className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 outline-none relative w-10 h-10 flex items-center justify-center text-ink dark:text-ink-dark"
-      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      className="w-10 h-10 border-2 border-[var(--border-color)] rounded-full flex items-center justify-center bg-[var(--canvas-alt)] text-[var(--ink)] shadow-[2px_2px_0px_0px_var(--shadow-color)] hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_var(--shadow-color)] transition-all cursor-pointer"
+      aria-label="Toggle Theme"
     >
-      <AnimatePresence mode="wait" initial={false}>
-        {theme === 'light' ? (
-          <motion.div
-            key="sun"
-            initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
-            animate={{ opacity: 1, rotate: 0, scale: 1 }}
-            exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
-            transition={{ duration: 0.2 }}
-            className="absolute"
-          >
-            <Sun size={20} />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="moon"
-            initial={{ opacity: 0, rotate: 90, scale: 0.5 }}
-            animate={{ opacity: 1, rotate: 0, scale: 1 }}
-            exit={{ opacity: 0, rotate: -90, scale: 0.5 }}
-            transition={{ duration: 0.2 }}
-            className="absolute"
-          >
-            <Moon size={20} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {theme === 'dark' ? <Moon size={20} className="fill-[var(--ink)]" /> : <Sun size={20} className="fill-[var(--ink)]" />}
     </button>
   );
 }

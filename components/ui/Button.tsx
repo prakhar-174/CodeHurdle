@@ -1,24 +1,25 @@
 import React, { forwardRef } from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'custom';
   size?: 'sm' | 'md' | 'lg';
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = 'primary', size = 'md', className = '', children, ...props }, ref) => {
-    const baseStyles = 'inline-flex items-center justify-center transition-all duration-150 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 outline-none disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
+    const baseStyles = 'inline-flex items-center justify-center transition-all duration-150 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 outline-none disabled:opacity-50 disabled:pointer-events-none cursor-pointer font-bold border-2 border-[var(--border-color)]';
     
     const variants = {
-      primary: 'bg-accent dark:bg-accent-dark text-white rounded-full font-semibold hover:bg-accent/90 dark:hover:bg-accent-dark/90 hover:shadow-md hover:-translate-y-[1px] active:translate-y-0 active:shadow-sm',
-      secondary: 'border-2 border-ink dark:border-ink-dark text-ink dark:text-ink-dark rounded-full hover:bg-ink dark:hover:bg-ink-dark hover:text-canvas dark:hover:text-canvas-dark',
-      ghost: 'text-accent dark:text-accent-dark underline-offset-4 hover:underline bg-transparent',
+      primary: 'bg-[var(--ink)] text-[var(--canvas)] rounded-full hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_var(--shadow-color)]',
+      secondary: 'bg-transparent text-[var(--ink)] rounded-full hover:bg-[var(--ink)] hover:text-[var(--canvas)]',
+      ghost: 'border-transparent text-[var(--ink)] underline-offset-4 hover:underline bg-transparent',
+      custom: 'rounded-full hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_var(--shadow-color)]',
     };
 
     const sizes = {
-      sm: 'px-4 py-2 text-sm',
+      sm: 'px-5 py-2 text-sm',
       md: 'px-6 py-3 text-base',
-      lg: 'px-8 py-4 text-lg',
+      lg: 'px-10 py-4 text-lg',
     };
     
     const sizeStyle = variant === 'ghost' ? '' : sizes[size];

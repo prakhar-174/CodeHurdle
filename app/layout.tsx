@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans, Inter, JetBrains_Mono, Caveat } from 'next/font/google'
+import { Space_Grotesk, Inter, JetBrains_Mono, Caveat } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '../components/layout/ThemeProvider'
 import { LenisProvider } from '../components/layout/LenisProvider'
+import { ThemeProvider } from '../components/layout/ThemeProvider'
 
-const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-display' })
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-display' })
 const inter = Inter({ subsets: ['latin'], variable: '--font-body' })
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' })
 const caveat = Caveat({ subsets: ['latin'], variable: '--font-accent' })
@@ -21,12 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="lenis" suppressHydrationWarning>
-      <body className={`${inter.className} font-body antialiased ${plusJakartaSans.variable} ${inter.variable} ${jetbrainsMono.variable} ${caveat.variable}`}>
-        <ThemeProvider>
-          <LenisProvider>
+      <body className={`${inter.className} font-body antialiased ${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} ${caveat.variable} bg-[var(--canvas)] text-[var(--ink)]`}>
+        <LenisProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
-          </LenisProvider>
-        </ThemeProvider>
+          </ThemeProvider>
+        </LenisProvider>
       </body>
     </html>
   )

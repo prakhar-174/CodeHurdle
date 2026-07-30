@@ -29,17 +29,17 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t border-border dark:border-border-dark bg-canvas dark:bg-canvas-dark pt-16 pb-8">
+    <footer className="border-t-2 border-[var(--border-color)] bg-[var(--canvas)] pt-16 pb-8 transition-colors">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           
           {/* Col 1 */}
           <div className="flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-2 text-ink dark:text-ink-dark w-max outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md">
-              <Zap className="text-accent dark:text-accent-dark" size={24} fill="currentColor" />
-              <span className="font-display font-bold text-xl tracking-tight">CodeHurdle</span>
+            <Link href="/" className="flex items-center gap-2 text-[var(--ink)] w-max outline-none focus-visible:ring-2 focus-visible:ring-[#2D5BE3] rounded-md">
+              <Zap className="text-[#2D5BE3]" size={28} fill="currentColor" />
+              <span className="font-display font-extrabold text-2xl tracking-tighter">CodeHurdle</span>
             </Link>
-            <p className="text-sm text-ink-muted dark:text-ink-muted-dark leading-relaxed">
+            <p className="text-sm font-bold text-[var(--ink-muted)] leading-relaxed">
               The best place to master DSA and crack top tech interviews.
             </p>
             <div className="flex items-center gap-4 mt-2">
@@ -48,7 +48,7 @@ export function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="text-ink-muted hover:text-accent dark:text-ink-muted-dark dark:hover:text-accent-dark transition-colors outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md p-1 -ml-1"
+                  className="text-[var(--ink)] hover:text-[#2D5BE3] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#2D5BE3] rounded-md p-1 -ml-1"
                 >
                   {social.icon}
                 </a>
@@ -58,11 +58,11 @@ export function Footer() {
           
           {/* Col 2 */}
           <div className="flex flex-col gap-4">
-            <h3 className="font-semibold text-ink dark:text-ink-dark">Company</h3>
+            <h3 className="font-extrabold text-[var(--ink)] uppercase tracking-widest text-sm">Company</h3>
             <ul className="flex flex-col gap-3">
               {companyLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-ink-muted hover:text-ink dark:text-ink-muted-dark dark:hover:text-ink-dark transition-colors outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm">
+                  <Link href={link.href} className="text-sm font-bold text-[var(--ink-muted)] hover:text-[#2D5BE3] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#2D5BE3] rounded-sm">
                     {link.name}
                   </Link>
                 </li>
@@ -72,11 +72,11 @@ export function Footer() {
           
           {/* Col 3 */}
           <div className="flex flex-col gap-4">
-            <h3 className="font-semibold text-ink dark:text-ink-dark">DSA Playlists</h3>
+            <h3 className="font-extrabold text-[var(--ink)] uppercase tracking-widest text-sm">DSA Playlists</h3>
             <ul className="flex flex-col gap-3">
               {dsaLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-ink-muted hover:text-ink dark:text-ink-muted-dark dark:hover:text-ink-dark transition-colors outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm">
+                  <Link href={link.href} className="text-sm font-bold text-[var(--ink-muted)] hover:text-[#2D5BE3] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#2D5BE3] rounded-sm">
                     {link.name}
                   </Link>
                 </li>
@@ -86,11 +86,11 @@ export function Footer() {
           
           {/* Col 4 */}
           <div className="flex flex-col gap-4">
-            <h3 className="font-semibold text-ink dark:text-ink-dark">Contact</h3>
-            <a href="mailto:support@codehurdle.com" className="text-sm text-ink hover:text-accent dark:text-ink-dark dark:hover:text-accent-dark transition-colors font-medium outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm w-max">
+            <h3 className="font-extrabold text-[var(--ink)] uppercase tracking-widest text-sm">Contact</h3>
+            <a href="mailto:support@codehurdle.com" className="text-sm text-[var(--ink)] hover:text-[#2D5BE3] transition-colors font-bold outline-none focus-visible:ring-2 focus-visible:ring-[#2D5BE3] rounded-sm w-max">
               support@codehurdle.com
             </a>
-            <p className="text-xs text-ink-muted dark:text-ink-muted-dark">
+            <p className="text-xs font-bold text-[var(--ink)] opacity-50 uppercase tracking-widest">
               Response within 30 minutes
             </p>
           </div>
@@ -98,11 +98,11 @@ export function Footer() {
         </div>
         
         {/* Bottom Bar */}
-        <div className="border-t border-border dark:border-border-dark mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-ink-muted dark:text-ink-muted-dark">
+        <div className="border-t-2 border-[var(--border-color)] mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold text-[var(--ink-muted)] uppercase tracking-widest">
           <p>© 2026 CodeHurdle. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="#" className="hover:text-ink dark:hover:text-ink-dark transition-colors outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm">Privacy Policy</Link>
-            <Link href="#" className="hover:text-ink dark:hover:text-ink-dark transition-colors outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm">Terms of Service</Link>
+            <Link href="#" className="hover:text-[var(--ink)] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#2D5BE3] rounded-sm">Privacy Policy</Link>
+            <Link href="#" className="hover:text-[var(--ink)] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#2D5BE3] rounded-sm">Terms of Service</Link>
           </div>
         </div>
       </div>

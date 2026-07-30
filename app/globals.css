@@ -1,21 +1,37 @@
 @import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
 
+:root {
+  --canvas: #FFFBF2;
+  --canvas-alt: #FFF1E6;
+  --ink: #000000;
+  --ink-muted: rgba(0,0,0,0.7);
+  --border-color: #000000;
+  --shadow-color: #000000;
+}
+
+.dark {
+  --canvas: #111111;
+  --canvas-alt: #1E1E1E;
+  --ink: #FFFFFF;
+  --ink-muted: rgba(255,255,255,0.7);
+  --border-color: #FFFFFF;
+  --shadow-color: #FFFFFF;
+}
 @theme {
-  --color-canvas: #F6F3EE;
-  --color-canvas-dark: #0F0F0F;
+  --color-canvas: #FFFBF2; /* Cream background */
+  --color-canvas-alt: #FFF1E6; /* Peach tint background */
+  --color-peach: #FFD5B3;
+  --color-peach-light: #FFE8D6;
+  --color-lavender: #E9D5FF;
+  --color-lavender-light: #F3E8FF;
   --color-card: #FFFFFF;
-  --color-card-dark: #1C1C1C;
-  --color-border: #E2DDD6;
-  --color-border-dark: #2A2A2A;
-  --color-ink: #1A1714;
-  --color-ink-dark: #F2EFE9;
-  --color-ink-muted: #6B6560;
-  --color-ink-muted-dark: #8A8480;
+  --color-border: #000000;
+  --color-ink: #000000;
+  --color-ink-muted: #4A4A4A;
   --color-accent: #2D5BE3;
-  --color-accent-soft: #EEF2FF;
-  --color-accent-dark: #4F7EFF;
-  --color-tag-bg: #F0EDFF;
-  --color-tag-ink: #3730A3;
+  --color-tag-bg: #FFE8D6;
+  --color-tag-ink: #000000;
 
   --font-display: var(--font-display), sans-serif;
   --font-body: var(--font-body), sans-serif;
@@ -23,11 +39,13 @@
   --font-accent: var(--font-accent), cursive;
 
   --radius-4xl: 2rem;
+  --radius-pill: 9999px;
+
+  --shadow-retro: 4px 4px 0px 0px #000000;
+  --shadow-retro-lg: 8px 8px 0px 0px #000000;
 
   --animate-marquee: marquee 25s linear infinite;
 }
-
-@custom-variant dark (&:is(.dark *));
 
 @keyframes marquee {
   0% { transform: translateX(0%); }

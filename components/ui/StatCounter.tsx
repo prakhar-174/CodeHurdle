@@ -19,11 +19,11 @@ export function StatCounter({ value, suffix = '', label }: StatCounterProps) {
   const count = useCountUp({ end: value, duration: 1500, inView });
 
   return (
-    <div ref={ref} className="flex flex-col items-center md:items-start text-center md:text-left">
-      <div className="font-mono text-4xl font-bold text-accent dark:text-accent-dark">
+    <div ref={ref} className="flex flex-col items-center justify-center text-center">
+      <div className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-inherit">
         {count}{suffix}
       </div>
-      <div className="text-sm font-medium text-ink-muted dark:text-ink-muted-dark uppercase tracking-widest mt-1">
+      <div className="text-xs md:text-sm font-bold opacity-60 uppercase tracking-widest mt-2 text-inherit">
         {label}
       </div>
     </div>

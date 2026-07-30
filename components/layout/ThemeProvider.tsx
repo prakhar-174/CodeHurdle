@@ -1,14 +1,7 @@
 'use client';
 
-import React from 'react';
-import { ThemeContext, useThemeInit } from '../../hooks/useTheme';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const themeState = useThemeInit();
-
-  return (
-    <ThemeContext.Provider value={themeState}>
-      {children}
-    </ThemeContext.Provider>
-  );
+export function ThemeProvider({ children, ...props }: React.ComponentProps<typeof NextThemesProvider>) {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
 }
