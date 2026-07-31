@@ -4,18 +4,18 @@ import { AnimatedCard } from '../ui/AnimatedCard';
 import { Badge } from '../ui/Badge';
 import { Code2, Target, CheckCircle, BookOpen, BarChart2, Users, Mic, Globe } from 'lucide-react';
 
-const getIcon = (name: string) => {
+const getIcon = (name: string, className: string = '') => {
   const icons: Record<string, React.ReactNode> = {
-    Code2: <Code2 className="w-5 h-5 text-accent dark:text-accent-dark" />,
-    Target: <Target className="w-5 h-5 text-accent dark:text-accent-dark" />,
-    CheckCircle: <CheckCircle className="w-5 h-5 text-accent dark:text-accent-dark" />,
-    BookOpen: <BookOpen className="w-5 h-5 text-accent dark:text-accent-dark" />,
-    BarChart2: <BarChart2 className="w-5 h-5 text-accent dark:text-accent-dark" />,
-    Users: <Users className="w-5 h-5 text-accent dark:text-accent-dark" />,
-    Mic: <Mic className="w-5 h-5 text-accent dark:text-accent-dark" />,
-    Globe: <Globe className="w-5 h-5 text-accent dark:text-accent-dark" />
+    Code2: <Code2 className={className} />,
+    Target: <Target className={className} />,
+    CheckCircle: <CheckCircle className={className} />,
+    BookOpen: <BookOpen className={className} />,
+    BarChart2: <BarChart2 className={className} />,
+    Users: <Users className={className} />,
+    Mic: <Mic className={className} />,
+    Globe: <Globe className={className} />
   };
-  return icons[name] || <Code2 className="w-5 h-5 text-accent dark:text-accent-dark" />;
+  return icons[name] || <Code2 className={className} />;
 };
 
 export function Features() {
@@ -43,7 +43,7 @@ export function Features() {
           <AnimatedCard key={feature.title} delay={index * 0.08}>
             <div className={`group h-full ${currentBg} border-[3px] border-[var(--border-color)] rounded-3xl p-6 md:p-8 shadow-[4px_4px_0px_0px_var(--shadow-color)] hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_var(--shadow-color)] transition-all duration-300 cursor-default flex flex-col`}>
               <div className="w-12 h-12 rounded-full bg-white dark:bg-black border-2 border-[var(--border-color)] flex items-center justify-center mb-6 shadow-[2px_2px_0px_0px_var(--shadow-color)] group-hover:scale-110 transition-transform">
-                {React.cloneElement(getIcon(feature.icon) as React.ReactElement, { className: 'w-6 h-6 text-black dark:text-white' })}
+                {getIcon(feature.icon, 'w-6 h-6 text-black dark:text-white')}
               </div>
               <h3 className="font-display font-extrabold text-xl mb-3 uppercase tracking-tight text-inherit">
                 {feature.title}
